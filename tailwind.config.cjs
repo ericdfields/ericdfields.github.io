@@ -56,7 +56,7 @@ module.exports = {
     plugin(function ({ addComponents }) {
       addComponents({
         'article.prose > *:not(.figures),.container': {
-          "@apply px-4 sm:px-8 mx-auto md:max-w-3xl lg:max-w-5xl": {}
+          "@apply px-4 sm:px-8 mx-auto md:max-w-3xl": {}
         },
         'article.prose > *:not(.figures) > *': {
           "max-width": "65ch"

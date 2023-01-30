@@ -3,7 +3,7 @@ const { figures } = Astro.props;
 ---
 
 <section class="overflow-none col-span-full figures w-full bg-black/20 my-8 not-prose border-y-[2rem] border-lime-700/50">
-  <div class={`grid gap-8 py-8 pb-16 ${figures.length === 1 ? "mx-auto" : "grid-flow-col auto-cols-max overflow-x-scroll md:pl-8"}`}>
+  <div class={`grid gap-8 py-8 pb-16 ${figures.length === 1 ? "mx-auto" : "grid-flow-col auto-cols-max overflow-x-scroll lg:pl-[10vw]"}`}>
     {
       figures.map((figure, index) => (
         <figure class="mx-auto">
