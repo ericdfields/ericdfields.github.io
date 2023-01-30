@@ -3,12 +3,17 @@ const { figures } = Astro.props;
 ---
 
 <section class="overflow-none col-span-full figures w-full bg-black/10 my-8 min-h-screen not-prose">
-  <div class="grid gap-8 grid-flow-col auto-cols-max overflow-x-scroll min-h-full md:pl-[10vw]">
+  <div class={`grid gap-8  py-8 min-h-full ${figures.length === 1 ? "mx-auto" : "grid-flow-col auto-cols-max overflow-x-scroll md:pl-[10vw]"}`}>
     {
       figures.map((figure, index) => (
-        <figure class="max-h-full">
-          {figure.srcType === "image" && <img src={figure.src} alt={figure.caption} class="max-h-[80vh] " />}
-          <figcaption class="prose px-8">{figure.caption}</figcaption>
+        <figure class="mx-auto">
+          {figure.srcType === "image" && <img src={figure.src} alt={figure.alt || figure.caption} class="max-h-[90vh]" />}
+          {figure.srcType === "video" && (
+            <video alt={figure.alt} class="max-h-[80vh] border-4 border-black/70 my-8" controls>
+              <source src={figure.src} type="video/mp4" />
+            </video>
+          )}
+          <figcaption class="px-8 font-medium text-sm">{figure.caption}</figcaption>
         </figure>
       ))
     }
