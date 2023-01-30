@@ -3,12 +3,60 @@ import Layout from "./Layout.astro";
 export interface Props {
   title: string;
   category: string;
+  slug: string;
 }
 
-const { title, category } = Astro.props;
+const { title, category, slug } = Astro.props;
+import { getCollection, getEntryBySlug } from "astro:content";
+const caseStudies = await getCollection("case-studies");
 ---
 
 <Layout title={title}>
+  <nav class="">
+    <div class="container">
+      <ul class="grid grid-cols-12 sm:gap-8">
+        <li class="col-span-6 sm:col-span-4 pt-6">
+          <a href="/" class="flex items-center group transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-8 h-8 opacity-50 group-hover:opacity-100 transition-opacity"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+              >
+              </path>
+            </svg>
+            <span class="pl-2 tracking-tight leading-none font-bold text-md flex flex-col opacity-50 group-hover:opacity-100 transition-opacity">
+              <b class="font-extrabold">Eric Brookfield</b>
+              <span class="text-sm text-lime-200">UI/UX Portfolio</span>
+            </span>
+          </a>
+        </li>
+        <li class="col-span-6 sm:col-span-8 pt-6 text-right">
+          <ol>
+            {
+              caseStudies.map((entry) => (
+                <li class="inline-block p-1 px-1.5">
+                  <a href={`/cs/${entry.slug}`} title={entry.data.title} class="block  hover:opacity-100 transition-opacity">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class={`w-5 w-5 ${entry.slug == slug ? "fill-yellow-200" : "fill-white"}`}>
+                      <circle cx="50" cy="50" r="50" />
+                    </svg>
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <main class="py-16 sm:py-24">
     <article class="grid grid-cols-1 prose md:prose-lg xl:prose-xl max-w-none">
       <header class="w-full">

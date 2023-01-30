@@ -1,9 +1,10 @@
 ---
 export interface Props {
   title: string;
+  slug: string;
 }
 
-const { title } = Astro.props;
+const { title, slug } = Astro.props;
 
 import { Content as FooterContent, components as footerComponents } from "../content/site/footer.mdx";
 ---

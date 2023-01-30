@@ -2,8 +2,8 @@
 const { figures } = Astro.props;
 ---
 
-<section class="overflow-none col-span-full figures w-full bg-black/10 my-8 min-h-screen not-prose">
-  <div class={`grid gap-8  py-8 min-h-full ${figures.length === 1 ? "mx-auto" : "grid-flow-col auto-cols-max overflow-x-scroll md:pl-[10vw]"}`}>
+<section class="overflow-none col-span-full figures w-full bg-black/20 my-8 not-prose border-y-[2rem] border-lime-700/50">
+  <div class={`grid gap-8 py-8 pb-16 ${figures.length === 1 ? "mx-auto" : "grid-flow-col auto-cols-max overflow-x-scroll md:pl-8"}`}>
     {
       figures.map((figure, index) => (
         <figure class="mx-auto">
@@ -13,7 +13,7 @@ const { figures } = Astro.props;
               <source src={figure.src} type="video/mp4" />
             </video>
           )}
-          <figcaption class="px-8 font-medium text-sm">{figure.caption}</figcaption>
+          <figcaption class="prose px-8 font-medium text-sm">{figure.caption}</figcaption>
         </figure>
       ))
     }

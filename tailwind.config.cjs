@@ -37,6 +37,8 @@ module.exports = {
           css: {
             '--tw-prose-headings': theme('colors.gray.100'),
             '--tw-prose-bold': theme('colors.lime.200'),
+            '--tw-prose-counters': theme('colors.gray.100'),
+            '--tw-prose-bullets': theme('colors.gray.100'),
             color: theme('colors.gray.100'),
             a: {
               color: theme('colors.yellow.200'),
@@ -53,8 +55,8 @@ module.exports = {
     require('@tailwindcss/typography'),
     plugin(function ({ addComponents }) {
       addComponents({
-        'article.prose > *:not(.figures)': {
-          "@apply px-8 mx-auto md:ml-[10vw] md:max-w-3xl lg:max-w-5xl": {}
+        'article.prose > *:not(.figures),.container': {
+          "@apply px-4 sm:px-8 mx-auto md:max-w-3xl lg:max-w-5xl": {}
         },
         'article.prose > *:not(.figures) > *': {
           "max-width": "65ch"
