@@ -5,7 +5,7 @@ I specialize in:
 - **Website & Application Design**
 - **Content Management Systems**
 - **Branding & Identity**
-- **Project Management**
+- **Software Development Lifecycle Management**
 
 I want it to be simple and painless.
 

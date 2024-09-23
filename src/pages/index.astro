@@ -1,22 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Prose from "../components/Prose.astro";
-import { Image } from "astro:assets";
-import Logo from "../images/logo.svg";
 import { getEntry } from "astro:content";
 const entry = await getEntry("home", "intro");
 const { Content } = await entry.render();
 ---
 
 <Layout title="Expect Creative Outcomes">
-	<main class="flex justify-center items-center h-full mx-8">
-		<div>
-			<Image
-				src={Logo}
-				alt="Logo for Creative Outcomes"
-				class="md:max-w-[66%] mb-6 -translate-x-1 md:-translate-x-2"
-			/>
+	<main class="md:flex justify-center items-center md:h-full">
+		<div class="md:max-w-[70%]">
 			<Prose><Content /></Prose>
+		</div>
+		<div>
+			<a
+				href="/portfolio"
+				class="bg-white border border-gray-400 p-4 text-right rounded block mt-4 transition-shadow shadow-sm hover:shadow-lg"
+			>
+				Portfolio →
+			</a>
 		</div>
 	</main>
 </Layout>

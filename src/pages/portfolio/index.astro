@@ -1,0 +1,24 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Prose from "../../components/Prose.astro";
+// import { getEntry } from "astro:content";
+// const entry = await getEntry("portfolio", "intro");
+// const { Content } = await entry.render();
+import { getCollection } from "astro:content";
+const allWork = await getCollection("work");
+---
+
+<Layout title="Expect Creative Outcomes">
+	<main class="flex justify-center items-center h-[calc(100vh-8rem)]">
+		<ul class="flex w-full h-full overflow-x-scroll space-x-4 snap-x">
+			<!-- <li class="w-[16%] h-full flex-shrink-0 snap-center"></li> -->
+			{
+				allWork.map((work) => (
+					<li class="bg-gray-100 w-[66%] h-full flex-shrink-0 snap-center">
+						{work.data.title}
+					</li>
+				))
+			}
+		</ul>
+	</main>
+</Layout>

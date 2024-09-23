@@ -4,6 +4,10 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const ms = 5000;
+import { Image } from "astro:assets";
+import Logo from "../images/logo.svg";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -15,22 +19,16 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
-	<body class="h-full">
+	<body class="h-full p-8">
+		<a href="/">
+			<Image
+				src={Logo}
+				alt="Logo for Creative Outcomes"
+				class="md:max-w-[66%] mb-6 -translate-x-1 md:-translate-x-2"
+			/></a
+		>
 		<slot />
 	</body>
 </html>
-<style is:global>
-	/* 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
- */
-</style>
