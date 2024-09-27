@@ -1,0 +1,117 @@
+---
+import plusSvg from "../images/plus.svg?raw";
+const plusSvgContent = `url("data:image/svg+xml,${encodeURIComponent(plusSvg)}")`;
+import minusSvg from "../images/minus.svg?raw";
+const minusSvgContent = `url("data:image/svg+xml,${encodeURIComponent(minusSvg)}")`;
+---
+
+<section class="p-12">
+  <div class="details-list max-w-screen-sm m-auto">
+    <details name="reqs">
+      <summary>See solution 1</summary>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+        facere eos maiores deserunt doloribus accusamus, explicabo doloremque,
+        eius sit alias consequuntur ab facilis quibusdam esse ipsam modi.
+        Quisquam, unde enim!
+      </div>
+    </details>
+    <details name="reqs">
+      <summary>See solution 2</summary>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+        facere eos maiores deserunt doloribus accusamus, explicabo doloremque,
+        eius sit alias consequuntur ab facilis quibusdam esse ipsam modi.
+        Quisquam, unde enim!
+      </div>
+    </details>
+    <details name="reqs">
+      <summary>See solution 3</summary>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+        facere eos maiores deserunt doloribus accusamus, explicabo doloremque,
+        eius sit alias consequuntur ab facilis quibusdam esse ipsam modi.
+        Quisquam, unde enim!
+      </div>
+    </details>
+    <details name="reqs">
+      <summary>See solution 4</summary>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+        facere eos maiores deserunt doloribus accusamus, explicabo doloremque,
+        eius sit alias consequuntur ab facilis quibusdam esse ipsam modi.
+        Quisquam, unde enim!
+      </div>
+    </details>
+  </div>
+</section>
+<style define:vars={{ plusSvgContent, minusSvgContent }}>
+  summary,
+  .details-list {
+    border: solid #ccc;
+  }
+  summary {
+    @apply py-4;
+    border-width: 1px 0 0;
+    cursor: pointer;
+  }
+  details {
+    @apply transition-all;
+  }
+  details > *:last-child {
+    @apply px-4 pb-4;
+  }
+  .details-list {
+    border-width: 0 0 1px;
+  }
+  details > summary {
+    list-style-type: none;
+    position: relative;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details > summary::after {
+    content: var(--plusSvgContent);
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+  }
+
+  details[open] > summary::after {
+    content: var(--minusSvgContent);
+  }
+
+  details[open] > summary {
+    margin-bottom: 0.5rem;
+  }
+</style>
+<script define:vars={{ plusSvg }}>
+  console.log(plusSvg);
+  document.querySelectorAll("details").forEach((details) => {
+    details.lastElementChild.classList.add("hidden");
+    details.addEventListener("toggle", (event) => {
+      event.preventDefault();
+      if (details.attributes.open) {
+        details.lastElementChild.classList.remove("hidden");
+        details.lastElementChild.classList.add("animate-fade-in");
+        return;
+      }
+      details.lastElementChild.classList.remove("animate-fade-in");
+      details.lastElementChild.classList.add("animate-fade-out");
+      setTimeout(() => {
+        details.lastElementChild.classList.add("hidden");
+        details.lastElementChild.classList.remove("animate-fade-out");
+      }, 250);
+      // console.log();
+      // details.open
+      //   ? details.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      //   : details.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    });
+  });
+</script>
