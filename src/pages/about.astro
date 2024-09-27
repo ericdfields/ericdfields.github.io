@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Grid5050 from "../components/sections/grid-50-50.astro";
+import GridCols12 from "../components/sections/grid-cols-12.astro";
+import ColSpan4 from "../components/sections/col-span-4.astro";
+import Heading2 from "../components/Heading2.astro";
+import Heading3 from "../components/Heading3.astro";
+import Prose from "../components/Prose.astro";
+---
+
+<Layout title="About Creative Outcomes">
+  <Grid5050>
+    <Heading2 slot="left">We like to build it beautiful</Heading2>
+    <div slot="right" class="prose-lg">
+      <p>
+        <b>Creative Outcomes</b> is a small web design and development agency based
+        in Baltimore, Maryland. We chose to focus our business on Squarespace because
+        its one of the fastest ways to get up and running on the web with a modern
+        look that's easy to maintain and a featureset that grows with your business.
+      </p>
+      <p>
+        Creative Outcomes is principaled by Eric Brookfield, a software engineer
+        and designer who has been developing apps and websites since the
+        mid-2000s.
+      </p>
+    </div>
+  </Grid5050>
+  <Grid5050>
+    <Heading2 slot="before">Why don't I just do Squarespace on my own?</Heading2
+    >
+    <div slot="left" class="prose-lg">
+      <p>
+        <b>Fair question!</b> While the tools to build on Squarespace are user-friendly,
+        most people do not speak the language of the web natively. We've learned
+        that many folks start their Squarespace journey on their own but find it
+        takes more time and effort than expected.
+      </p>
+      <p>
+        <Heading3>We're here to save you time.</Heading3>
+        When you work with us, you don't have to guess whether you're creating your
+        site <i>the right way</i>. Our familiarity with Squarespace means you
+        don't have to learn as much on your own, and can instead focus that time
+        toward your business.
+      </p>
+    </div>
+    <div slot="right">
+      <Heading3>Reasons to consider Creative Outcomes</Heading3>
+      <Prose class="prose-lg">
+        <ol>
+          <li>
+            <b>We help you get the ideas out of your head.</b> The hardest part of
+            building a wesbtie is knowing what to say and where to say it. Getting
+            the ideas out of your head and onto the screen in a way that makes sense
+            to your customers is an important process.
+          </li>
+          <li>
+            <b>We know the tools.</b> Squarespace gives everyday people powerful
+            tools to put content online, but every new element added to a page has
+            implications. We've created dozens of websites and know how the puzzle
+            pieces fit together.
+          </li>
+          <li>
+            <b>We provide a process framework.</b> Implicit in Squarespace's DIY
+            tools is an ideal path for creating a beautiful website. We will guide
+            you down that path efficiently.
+          </li>
+        </ol>
+      </Prose>
+    </div>
+  </Grid5050>
+  <GridCols12>
+    <Fragment>
+      <div class="col-span-12">
+        <Heading2>This is how we do it</Heading2>
+      </div>
+      <ColSpan4>
+        <Heading3>1. Discovery & Design</Heading3>
+        <div class="text-lg">
+          <p>
+            We begin by aligning on your brand and goals. During this phase, we
+            determine the basic structure of the site, what content we have and
+            what we need to generate, then align on your brand identity with
+            colors, typography and tone.
+          </p>
+        </div>
+      </ColSpan4>
+      <ColSpan4>
+        <Heading3>2. Revisions & Build-Out</Heading3>
+        <div class="text-lg">
+          <p>
+            Once the design goals are established, we can begin development of
+            the site in Squarespace. Much like framing a room of a house, it's
+            good to get the "load-bearing" content first, then embelish the
+            details as we go. The process is a back and forth of asynchronous
+            review and revisions.
+          </p>
+        </div>
+      </ColSpan4>
+      <ColSpan4>
+        <Heading3>3. Testing & Launch</Heading3>
+        <div class="text-lg">
+          <p>
+            We conduct thorough testing of your site on both desktop and mobile
+            environments, then provide client training on any features you'll
+            need to become familiar with in order to keep your site fresh on
+            your own. Then launch! If ongoing support and maintenance is
+            something you'd like us to take care of, we're here for you!
+          </p>
+        </div>
+      </ColSpan4>
+    </Fragment>
+  </GridCols12>
+</Layout>

@@ -1,23 +1,97 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Prose from "../components/Prose.astro";
-import { getEntry } from "astro:content";
-const entry = await getEntry("home", "intro");
-const { Content } = await entry.render();
+import { Image } from "astro:assets";
+import heroImage from "../images/hero.jpg";
+import Grid5050 from "../components/sections/grid-50-50.astro";
+import GridCols12 from "../components/sections/grid-cols-12.astro";
+import ColSpan4 from "../components/sections/col-span-4.astro";
+import Heading2 from "../components/Heading2.astro";
+import Heading3 from "../components/Heading3.astro";
 ---
 
 <Layout title="Expect Creative Outcomes">
-	<main class="md:flex justify-center items-center md:h-full">
-		<div class="md:max-w-[70%]">
-			<Prose><Content /></Prose>
+	<main>
+		<div class="relative max-h-[600px] overflow-hidden">
+			<Image src={heroImage} alt="A person working on a laptop" />
+			<h2
+				class="text-white absolute top-0 left-0 bg-gray-900/50 w-full flex justify-center h-full items-center text-4xl md:text-6xl lg:text-7xl"
+			>
+				<span class="-translate-y-20 md:-translate-y-36"
+					>Let's make a nice website.</span
+				>
+			</h2>
 		</div>
 		<div>
-			<a
-				href="/portfolio"
-				class="bg-white border border-gray-400 p-4 text-right rounded block mt-4 transition-shadow shadow-sm hover:shadow-lg"
-			>
-				Portfolio →
-			</a>
+			<Grid5050>
+				><Heading2 slot="left"
+					>Affordable, High-Impact Websites for Growing Businesses</Heading2
+				>
+				<Fragment slot="right">
+					<p class="text-lg">
+						<b>Creative Outcomes</b> delivers beautiful, cost-effective Squarespace
+						websites for small businesses. We provide tailored design that complements
+						your brand and a streamlined user experience for your customers. We can
+						even level you up on the simple skills you need to maintain and update
+						your fresh new site.
+					</p>
+					<p class="text-center md:text-left">
+						<a
+							href="/about"
+							class="bg-gray-700 hover:bg-gray-900 text-neutral-100 hover:text-white transition-colors text-lg p-4 px-8 rounded"
+							>Read more about us</a
+						>
+					</p>
+				</Fragment>
+			</Grid5050>
+			<GridCols12>
+				<Fragment>
+					<div class="col-span-12"><Heading2>Our Services</Heading2></div>
+					<ColSpan4>
+						<Heading3 class="md:h-24"
+							>Squarespace Website Design & Development</Heading3
+						>
+						<Fragment>
+							<p>
+								Affordable, visually stunning, and easy-to-manage websites
+								designed for small businesses. We tailor each site to your
+								brand, ensuring functionality and style while providing a quick
+								4-8 week turnaround.
+							</p>
+							<p>
+								<a href="/services" class="underline">Learn more</a>
+							</p>
+						</Fragment>
+					</ColSpan4>
+					<ColSpan4>
+						<Heading3 class="md:h-24">Custom Website Solutions</Heading3>
+						<Fragment>
+							<p>
+								For businesses needing something beyond Squarespace, we offer
+								fully custom web development by partnering with third-party
+								experts. With the right budget, we deliver advanced, scalable
+								websites that meet your unique needs.
+							</p>
+							<p>
+								<a href="/services" class="underline">Learn more</a>
+							</p>
+						</Fragment>
+					</ColSpan4>
+					<ColSpan4>
+						<Heading3 class="md:h-24">Ongoing Support & Maintenance</Heading3>
+						<Fragment>
+							<p>
+								After your site is live, we can provide training, post-launch
+								support, and additional digital services as needed, such as
+								email marketing solutions and content updates. A regularly
+								updated website is a happy website.
+							</p>
+							<p>
+								<a href="/services" class="underline">Learn more</a>
+							</p>
+						</Fragment>
+					</ColSpan4>
+				</Fragment>
+			</GridCols12>
 		</div>
 	</main>
 </Layout>

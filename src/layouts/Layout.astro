@@ -6,29 +6,48 @@ interface Props {
 const { title } = Astro.props;
 const ms = 5000;
 import { Image } from "astro:assets";
-import Logo from "../images/logo.svg";
+import Logo from "../images/co-logo.png";
+import Svg from "@cxa/astro-inline-svg";
+import SvgLogo from "../images/co-logo.svg?raw";
 import { ViewTransitions } from "astro:transitions";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
-<html lang="en" class="h-full bg-slate-50">
+<html lang="en" class="h-full bg-slate-100 text-gray-700">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>
+			{title} | Creative Outcomes Squarespace and Website Solutions from Baltimore,
+			MD.
+		</title>
 		<ViewTransitions />
 	</head>
 	<body class="h-full p-8">
-		<a href="/">
-			<Image
-				src={Logo}
-				alt="Logo for Creative Outcomes"
-				class="md:max-w-[66%] mb-6 -translate-x-1 md:-translate-x-2"
-			/></a
-		>
-		<slot />
+		<div class="max-w-screen-xl mx-auto">
+			<Header>
+				<a href="/">
+					<Image
+						src={Logo}
+						alt="Logo for Creative Outcomes"
+						class="max-w-[66%] -translate-x-1 md:-translate-x-2"
+					/></a
+				>
+			</Header>
+			<slot />
+		</div>
 	</body>
 </html>
+
+<style is:global>
+	h1,
+	h2 {
+		font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+			source-sans-pro, sans-serif;
+		font-weight: normal;
+	}
+</style>

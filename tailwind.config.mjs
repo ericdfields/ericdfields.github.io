@@ -2,7 +2,30 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			keyframes: {
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+					},
+					'100%': {
+						opacity: '1',
+					},
+				},
+				'fade-out': {
+					'0%': {
+						opacity: '1',
+					},
+					'100%': {
+						opacity: '0',
+					}
+				},
+			},
+			animation: {
+				'fade-in': 'fade-in 0.25s ease-in-out',
+				'fade-out': 'fade-out 0.25s ease-in-out',
+			}
+		}	
 	},
 	plugins: [require('@tailwindcss/typography'),],
 }
