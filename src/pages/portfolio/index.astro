@@ -9,27 +9,35 @@ const allWork = await getCollection("work");
 ---
 
 <Layout title="Expect Creative Outcomes">
-	<main class="flex justify-center items-center h-[calc(100vh-8rem)]">	
-		<section class="mb-8">
-			<h2 class="text-2xl font-bold">Welcome to My Portfolio</h2>
-			<p class="text-lg">
-				Here you will find a collection of my work, showcasing my skills and creativity. 
-				Feel free to explore and reach out if you have any questions!
-			</p>
-		</section>
+	<section class="mb-8">
+		<h2 class="text-2xl font-bold">Welcome to My Portfolio</h2>
+		<p class="text-lg">
+			Here you will find a collection of my work, showcasing my skills and
+			creativity. Feel free to explore and reach out if you have any questions!
+		</p>
+	</section>
+	<main class="flex justify-center items-center h-[calc(100vh-8rem)]">
 		<ul class="flex w-full h-full overflow-x-scroll space-x-4 snap-x">
 			<!-- <li class="w-[16%] h-full flex-shrink-0 snap-center"></li> -->
 			{
-				allWork.map((work) => (
-					<li class="bg-gray-100 w-[66%] h-full flex-shrink-0 snap-center">
-						<div>
-							<img src={work.data.heroImage} alt={work.data.title} class="w-full h-auto" />
-							<h3 class="text-xl font-semibold">{work.data.title}</h3>
-							<p>{work.data.description}</p>
-							<p class="text-gray-500">{work.data.timeframe}</p>
-						</div>
-					</li>
-				))
+				allWork.map(async (work) => {
+					const { Content } = await work.render();
+					return (
+						<li class="bg-gray-100 w-[66%] h-full flex-shrink-0 snap-center">
+							<div>
+								<img
+									src={work.data.heroImage}
+									alt={work.data.title}
+									class="w-full h-auto"
+								/>
+								<h3 class="text-xl font-semibold">{work.data.title}</h3>
+								<p>{work.data.description}</p>
+								<p class="text-gray-500">{work.data.timeframe}</p>
+								<Content />
+							</div>
+						</li>
+					);
+				})
 			}
 		</ul>
 	</main>
