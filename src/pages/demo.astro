@@ -1,11 +1,16 @@
 ---
+import "@/styles/globals.css";
 import plusSvg from "../images/plus.svg?raw";
 const plusSvgContent = `url("data:image/svg+xml,${encodeURIComponent(plusSvg)}")`;
 import minusSvg from "../images/minus.svg?raw";
 const minusSvgContent = `url("data:image/svg+xml,${encodeURIComponent(minusSvg)}")`;
+import { Button } from "@/components/ui/button";
+import DemoAccordion from "@/components/AccordionDemo.vue";
+import DemoCarousel from "@/components/CarouselDemo.vue";
 ---
 
 <section class="p-12">
+  <Button variant="destructive">Button</Button>
   <div class="details-list max-w-screen-sm m-auto">
     <details name="reqs">
       <summary>See solution 1</summary>
@@ -44,7 +49,10 @@ const minusSvgContent = `url("data:image/svg+xml,${encodeURIComponent(minusSvg)}
       </div>
     </details>
   </div>
+  <DemoCarousel client:load />
+  <DemoAccordion client:load />
 </section>
+
 <style define:vars={{ plusSvgContent, minusSvgContent }}>
   summary,
   .details-list {
@@ -99,14 +107,14 @@ const minusSvgContent = `url("data:image/svg+xml,${encodeURIComponent(minusSvg)}
       event.preventDefault();
       if (details.attributes.open) {
         details.lastElementChild.classList.remove("hidden");
-        details.lastElementChild.classList.add("animate-fade-in");
+        details.lastElementChild.classList.add("animate-collapsible-down");
         return;
       }
-      details.lastElementChild.classList.remove("animate-fade-in");
-      details.lastElementChild.classList.add("animate-fade-out");
+      details.lastElementChild.classList.remove("animate-collapsible-down");
+      details.lastElementChild.classList.add("animate-collapsible-up");
       setTimeout(() => {
         details.lastElementChild.classList.add("hidden");
-        details.lastElementChild.classList.remove("animate-fade-out");
+        details.lastElementChild.classList.remove("animate-collapsible-up");
       }, 250);
       // console.log();
       // details.open

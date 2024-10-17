@@ -11,9 +11,19 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.1",
+    "@astrojs/vue": "^4.5.1",
     "@cxa/astro-inline-svg": "^0.5.1",
+    "@vueuse/core": "^11.1.0",
     "astro": "^4.15.9",
-    "tailwindcss": "^3.4.10"
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "embla-carousel-vue": "^8.3.0",
+    "lucide-vue-next": "^0.446.0",
+    "radix-vue": "^1.9.6",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss": "^3.4.10",
+    "tailwindcss-animate": "^1.0.7",
+    "vue": "^3.5.10"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.14"
