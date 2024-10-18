@@ -29,5 +29,18 @@ import "@/styles/globals.css";
 			<Header />
 			<slot />
 		</div>
-	</body>
+    <script>
+      function updateBodyClass() {
+        const body = document.body;
+        if (window.innerWidth > 768) {
+          body.classList.remove('mobile');
+        } else {
+          body.classList.add('mobile');
+        }
+      }
+
+      window.addEventListener('resize', updateBodyClass);
+      document.addEventListener('DOMContentLoaded', updateBodyClass);
+    </script>
+  </body>
 </html>
