@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import heroImage from "../images/hero.jpg";
 import Grid5050 from "../components/sections/grid-50-50.astro";
 import GridCols12 from "../components/sections/grid-cols-12.astro";
 import ColSpan4 from "../components/sections/col-span-4.astro";
@@ -9,7 +7,7 @@ import Heading2 from "../components/Heading2.astro";
 import Heading3 from "../components/Heading3.astro";
 ---
 
-<Layout title="Expect Creative Outcomes">
+<Layout title="Expect Creative Outcomes" className="index">
 	<main>
 		<div class="relative h-[100vh] -mt-[13rem] z-10">
 			<div class="video-container">
@@ -31,9 +29,9 @@ import Heading3 from "../components/Heading3.astro";
 				/>
 			</div>
 			<h2
-				class="text-white absolute top-0 left-0 bg-gray-900/50 w-full flex justify-center h-full items-center text-4xl md:text-6xl lg:text-[10rem] text-center font-bold"
+				class="text-white absolute top-0 left-0 bg-gray-900/50 w-full flex justify-center h-full items-center text-8xl lg:text-[10rem] text-center font-semibold"
 			>
-				<span class="">Let's make a nice little website.</span>
+				<span class="">Let's build a nice little website.</span>
 			</h2>
 		</div>
 		<div class="max-w-screen-xl m-auto">
@@ -110,3 +108,9 @@ import Heading3 from "../components/Heading3.astro";
 		</div>
 	</main>
 </Layout>
+
+<style is:global>
+	.logo-image.inverted {
+		filter: invert(100%);
+	}
+</style>
