@@ -1,9 +1,9 @@
 ---
 interface Props {
 	title: string;
-}
+  className?: string;
 
-const { title } = Astro.props;
+const { title, className } = Astro.props;
 const ms = 5000;
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
@@ -24,7 +24,7 @@ import "@/styles/globals.css";
 		</title>
 		<ViewTransitions />
 	</head>
-	<body class="h-full">
+	<body class={`h-full ${className}`}>
 		<div class="mx-auto">
 			<Header />
 			<slot />
