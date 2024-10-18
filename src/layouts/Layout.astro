@@ -5,10 +5,6 @@ interface Props {
 
 const { title } = Astro.props;
 const ms = 5000;
-import { Image } from "astro:assets";
-import Logo from "../images/co-logo.png";
-import Svg from "@cxa/astro-inline-svg";
-import SvgLogo from "../images/co-logo.svg?raw";
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 import "@/styles/globals.css";
@@ -30,25 +26,8 @@ import "@/styles/globals.css";
 	</head>
 	<body class="h-full">
 		<div class="mx-auto">
-			<Header>
-				<a href="/">
-					<Image
-						src={Logo}
-						alt="Logo for Creative Outcomes"
-						class="max-w-[66%] -translate-x-1 md:-translate-x-2"
-					/></a
-				>
-			</Header>
+			<Header />
 			<slot />
 		</div>
 	</body>
 </html>
-
-<style is:global>
-	h1,
-	h2 {
-		font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
-			source-sans-pro, sans-serif;
-		font-weight: normal;
-	}
-</style>
