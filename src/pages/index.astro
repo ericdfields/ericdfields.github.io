@@ -9,7 +9,7 @@ import Heading3 from "../components/Heading3.astro";
 
 <Layout title="Expect Creative Outcomes" className="index">
 	<main>
-		<div class="relative h-[100vh] z-10">
+		<div class="relative h-[100vh] z-10" id="fade-container">
 			<div class="video-container">
 				<video
 					autoplay
@@ -107,6 +107,17 @@ import Heading3 from "../components/Heading3.astro";
 			</GridCols12>
 		</div>
 	</main>
+		<script>
+			const fadeContainer = document.getElementById('fade-container');
+			const fadeText = fadeContainer.querySelector('h2');
+
+			window.addEventListener('scroll', () => {
+				const scrollY = window.scrollY;
+				const windowHeight = window.innerHeight;
+				const opacity = 1 - Math.min(scrollY / windowHeight, 1);
+				fadeText.style.opacity = opacity;
+			});
+		</script>
 </Layout>
 
 <style is:global>
