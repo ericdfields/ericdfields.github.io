@@ -1,123 +1,50 @@
+---
+import { Image } from "astro:assets";
+import Logo from "@/images/logo1.png";
+---
+
 <header class="relative z-20">
-  <nav
-    class="mx-auto flex max-w-7xl items-center justify-between py-6"
-    aria-label="Global"
-  >
-    <slot />
-    <div class="flex lg:hidden">
-      <button
-        type="button"
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-        data-toggle-button
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-        </svg>
-      </button>
-    </div>
-    <div class="hidden lg:flex lg:gap-x-12">
-      <a href="/about" class="text-sm font-semibold leading-6 text-gray-900"
-        >About</a
-      >
-      <a href="/portfolio" class="text-sm font-semibold leading-6 text-gray-900"
-        >Portfolio</a
-      >
-      <a href="/services" class="text-sm font-semibold leading-6 text-gray-900"
-        >Services</a
-      >
-    </div>
+  <nav class="absolute z-30">
+    <ul class="">
+      <li>
+        <a href="/about">About</a>
+      </li>
+      <li>
+        <a href="/services">Services</a>
+      </li>
+      <li>
+        <a href="/contact">Contact</a>
+      </li>
+    </ul>
   </nav>
-  <!-- Mobile menu, show/hide based on menu open state. -->
-  <div
-    class="lg:hidden hidden"
-    role="dialog"
-    aria-modal="true"
-    data-toggle-target
+  <a href="/" class="relative z-40 block p-8">
+    <Image
+      src={Logo}
+      alt="Logo for Creative Outcomes"
+      class="logo-image max-w-[66%] mx-auto"
+    /></a
   >
-    <!-- Background backdrop, show/hide based on slide-over state. -->
-    <div class="fixed inset-0 z-10 hidden" data-toggle-target></div>
-    <div
-      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
-    >
-      <div class="flex items-center justify-between">
-        <span></span>
-        <button
-          type="button"
-          class="-m-2.5 rounded-md p-2.5 text-gray-700"
-          data-toggle-button
-        >
-          <span class="sr-only">Close menu</span>
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <div class="mt-6 flow-root">
-        <div class="-my-6 divide-y divide-gray-500/10">
-          <div class="space-y-2 py-6">
-            <a
-              href="/about"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >About</a
-            >
-            <a
-              href="/portfolio"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >Portfolio</a
-            >
-            <a
-              href="/services"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >Services</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </header>
 
-<script>
-  let mobileMenuOpen = false;
-  const buttons = document.querySelectorAll("[data-toggle-button]");
-  const targets = document.querySelectorAll("[data-toggle-target]");
-  buttons.forEach((button) => {
-    button.addEventListener("click", () =>
-      targets.forEach((target) => {
-        console.log(target.classList);
-        if (target.classList.contains("hidden")) {
-          target.classList.remove("hidden");
-          target.classList.add("animate-fade-in");
-          return;
-        }
-        target.classList.remove("animate-fade-in");
-        target.classList.add("animate-fade-out");
-        setTimeout(() => {
-          target.classList.add("hidden");
-          target.classList.remove("animate-fade-out");
-        }, 250);
-      }),
-    );
-  });
-</script>
+<style>
+  nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 1);
+    text-align: center;
+    height: 100vh;
+  }
+  nav ul {
+    display: block;
+    width: 100%;
+  }
+  nav li {
+    display: block;
+    width: 100%;
+  }
+  nav a {
+    font-size: 8rem;
+    font-weight: 300;
+  }
+</style>
