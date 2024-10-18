@@ -1,10 +1,11 @@
 ---
+import { useState } from "react";
 import { Image } from "astro:assets";
 import Logo from "@/images/logo1.png";
 ---
 
-<header class="relative z-20">
-  <nav class="absolute z-30">
+<header class="relative z-20" id="header">
+  <nav class="absolute z-30" id="nav" style="display: none;">
     <ul class="">
       <li>
         <a href="/about">About</a>
@@ -17,7 +18,7 @@ import Logo from "@/images/logo1.png";
       </li>
     </ul>
   </nav>
-  <a href="/" class="relative z-40 block p-8">
+  <a href="#" class="relative z-40 block p-8" onclick="toggleNav()">
     <Image
       src={Logo}
       alt="Logo for Creative Outcomes"
@@ -46,5 +47,13 @@ import Logo from "@/images/logo1.png";
   nav a {
     font-size: 8rem;
     font-weight: 300;
+  }
+  function toggleNav() {
+    const nav = document.getElementById('nav');
+    if (nav.style.display === 'none' || nav.style.display === '') {
+      nav.style.display = 'flex';
+    } else {
+      nav.style.display = 'none';
+    }
   }
 </style>
