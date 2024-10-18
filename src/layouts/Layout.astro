@@ -29,18 +29,20 @@ import "@/styles/globals.css";
 			<Header />
 			<slot />
 		</div>
-    <script>
-      function updateBodyClass() {
-        const body = document.body;
-        if (window.innerWidth > 768) {
-          body.classList.remove('mobile');
-        } else {
-          body.classList.add('mobile');
-        }
-      }
+		<script>
+			function updateBodyClass() {
+				const body = document.body;
+				if (window.innerWidth > 768) {
+					body.classList.remove("mobile");
+					body.classList.add("desktop");
+				} else {
+					body.classList.add("mobile");
+					body.classList.remove("desktop");
+				}
+			}
 
-      window.addEventListener('resize', updateBodyClass);
-      document.addEventListener('DOMContentLoaded', updateBodyClass);
-    </script>
-  </body>
+			window.addEventListener("resize", updateBodyClass);
+			document.addEventListener("DOMContentLoaded", updateBodyClass);
+		</script>
+	</body>
 </html>
