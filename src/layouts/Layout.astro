@@ -44,19 +44,20 @@ import "@/styles/globals.css";
 			window.addEventListener("resize", updateBodyClass);
 			document.addEventListener("DOMContentLoaded", updateBodyClass);
 			function updateNavOpacity() {
-				const videoContainer = document.querySelector('.video-container');
+				const videoContainer = document.querySelector(".video-container");
 				const videoRect = videoContainer.getBoundingClientRect();
 				const windowHeight = window.innerHeight;
 
-				if (videoRect.bottom < windowHeight * 0.2) {
-					document.body.classList.add('nav-opaque');
+				if (videoRect.bottom < windowHeight * 0.12) {
+					document.body.classList.add("nav-opaque");
 				} else {
-					document.body.classList.remove('nav-opaque');
+					document.body.classList.remove("nav-opaque");
 				}
 			}
 
-			window.addEventListener('scroll', updateNavOpacity);
-			document.addEventListener('DOMContentLoaded', updateNavOpacity);
+			window.addEventListener("scroll", updateNavOpacity);
+			window.addEventListener("resize", updateNavOpacity);
+			document.addEventListener("DOMContentLoaded", updateNavOpacity);
 		</script>
 	</body>
 </html>

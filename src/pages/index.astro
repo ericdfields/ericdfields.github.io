@@ -28,8 +28,10 @@ import Heading3 from "../components/Heading3.astro";
 					style="display: none;"
 				/>
 			</div>
+			<span class="screen absolute top-0 left-0 bg-gray-900/50 w-full h-full"
+			></span>
 			<h2
-				class="text-white absolute top-0 left-0 bg-gray-900/50 w-full flex justify-center h-full items-center text-8xl lg:text-[10rem] text-center font-semibold"
+				class="text-white absolute top-0 left-0 w-full flex justify-center h-full items-center text-8xl lg:text-[10rem] text-center font-semibold"
 			>
 				<span class="">Let's build a nice little website.</span>
 			</h2>
@@ -107,21 +109,15 @@ import Heading3 from "../components/Heading3.astro";
 			</GridCols12>
 		</div>
 	</main>
-		<script>
-			const fadeContainer = document.getElementById('fade-container');
-			const fadeText = fadeContainer.querySelector('h2');
+	<script>
+		const fadeContainer = document.getElementById("fade-container");
+		const fadeText = fadeContainer.querySelector("h2");
 
-			window.addEventListener('scroll', () => {
-				const scrollY = window.scrollY;
-				const windowHeight = window.innerHeight;
-				const opacity = 1 - Math.min(scrollY / windowHeight, 1);
-				fadeText.style.opacity = opacity;
-			});
-		</script>
+		window.addEventListener("scroll", () => {
+			const scrollY = window.scrollY;
+			const windowHeight = window.innerHeight;
+			const opacity = 1 - Math.min(scrollY / windowHeight, 1) * 2;
+			fadeText.style.opacity = opacity;
+		});
+	</script>
 </Layout>
-
-<style is:global>
-	.logo-image.inverted {
-		filter: invert(100%);
-	}
-</style>
