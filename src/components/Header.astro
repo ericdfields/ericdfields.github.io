@@ -62,8 +62,10 @@ import Logo from "@/images/logo1.png";
 <script>
   const navToggle = document.querySelector("[data-nav-toggle]");
   navToggle.addEventListener("click", (event) => {
-    event.preventDefault();
-    const nav = document.querySelector("#nav");
-    nav.style.display = nav.style.display === "none" ? "block" : "none";
+    if (window.innerWidth <= 768) {
+      event.preventDefault();
+      const nav = document.querySelector("#nav");
+      nav.style.display = nav.style.display === "none" ? "block" : "none";
+    }
   });
 </script>
